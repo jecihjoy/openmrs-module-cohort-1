@@ -538,52 +538,6 @@
             </column>
         </createTable>
     </changeSet>
-    <changeSet id="add_cohort_member_attribute_type_20210609" author="corneliouzbett">
-        <preConditions onFail="MARK_RAN" onError="WARN">
-            <not>
-                <tableExists tableName="cohort_member_attribute_type"/>
-            </not>
-        </preConditions>
-        <createTable tableName="cohort_member_attribute_type">
-            <column name="cohort_member_attribute_type_id" autoIncrement="true" type="int(11)">
-                <constraints nullable="false" primaryKey="true"/>
-            </column>
-            <column name="name" type="varchar(255)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="description" type="varchar(255)"/>
-            <column name="datatype" type="varchar(255)"/>
-            <column name="datatype_config" type="text"/>
-            <column name="preferred_handler" type="varchar(255)"/>
-            <column name="handler_config" type="text"/>
-            <column name="max_occurs" type="int(11)"/>
-            <column name="min_occurs" type="int(11)">
-                <constraints nullable="false"/>
-            </column>
-            <column name="date_created" type="datetime">
-                <constraints nullable="false"/>
-            </column>
-            <column name="creator" type="int(11)">
-                <constraints nullable="false" foreignKeyName="cohort_member_attribute_type_creator_fk"
-                             references="users(user_id)"/>
-            </column>
-            <column name="changed_by" type="int(11)">
-                <constraints foreignKeyName="cohort_member_attribute_type_changed_by_fk" references="users(user_id)"/>
-            </column>
-            <column name="date_changed" type="datetime"/>
-            <column name="retired" type="tinyint(1)" defaultValueBoolean="false">
-                <constraints nullable="false"/>
-            </column>
-            <column name="retired_by" type="int(11)">
-                <constraints foreignKeyName="cohort_member_attribute_type_voided_by_fk" references="users(user_id)"/>
-            </column>
-            <column name="date_retired" type="datetime"/>
-            <column name="retire_reason" type="varchar(255)"/>
-            <column name="uuid" type="char(38)">
-                <constraints nullable="false"/>
-            </column>
-        </createTable>
-    </changeSet>
     <changeSet id="add_cohort_member_attribute_20210607" author="corneliouzbett">
         <preConditions onFail="MARK_RAN" onError="WARN">
             <not>

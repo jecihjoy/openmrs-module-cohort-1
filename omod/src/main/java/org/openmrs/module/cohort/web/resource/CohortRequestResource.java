@@ -39,10 +39,8 @@ public class CohortRequestResource extends DataDelegatingCrudResource<CohortM> {
 	public DelegatingResourceDescription getRepresentationDescription(Representation rep) {
 		if (Context.isAuthenticated()) {
 
-			DelegatingResourceDescription description = null;
-
 			if (rep instanceof DefaultRepresentation) {
-				description = new DelegatingResourceDescription();
+				DelegatingResourceDescription description = new DelegatingResourceDescription();
 				description.addProperty("name");
 				description.addProperty("description");
 				description.addProperty("location");
@@ -62,7 +60,7 @@ public class CohortRequestResource extends DataDelegatingCrudResource<CohortM> {
 				return description;
 			} else if (rep instanceof FullRepresentation) {
 
-				description = new DelegatingResourceDescription();
+				DelegatingResourceDescription description = new DelegatingResourceDescription();
 
 				description.addProperty("name");
 				description.addProperty("description");
@@ -87,7 +85,7 @@ public class CohortRequestResource extends DataDelegatingCrudResource<CohortM> {
 				return description;
 			}
 
-			return description;
+			return null;
 		}
 		return null;
 	}
